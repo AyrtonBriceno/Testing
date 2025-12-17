@@ -4,10 +4,20 @@ using System.Text.RegularExpressions;
 
 public record MacAddress(string Address)
 {
+    
     public MacAddress() : this(string.Empty) { }
-
+    
+    
+    
     public void Validate()
     {
+        {
+            if (!string.IsNullOrEmpty(Address))
+            {
+                Validate();
+            }
+        }
+        
         if (string.IsNullOrWhiteSpace(Address))
         {
             throw new ArgumentException("MAC Address cannot be empty");
@@ -19,7 +29,11 @@ public record MacAddress(string Address)
         {
             throw new ArgumentException("Invalid MAC Address format");
         }
+        
     }
     
+    
     public override string ToString() => Address;
+    
+    
 }

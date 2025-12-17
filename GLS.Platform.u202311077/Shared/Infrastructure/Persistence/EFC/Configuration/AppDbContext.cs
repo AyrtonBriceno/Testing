@@ -1,6 +1,7 @@
 ﻿using EntityFrameworkCore.CreatedUpdatedDate.Extensions;
 using GLS.Platform.u202311077.Assignments.Domain.Model.Aggregates;
 using GLS.Platform.u202311077.Shared.Infrastructure.Persistence.EFC.Configuration.Extensions;
+using GLS.Platform.u202311077.Tracking.Domain.Model.Aggregates;
 using Microsoft.EntityFrameworkCore;
 
 namespace GLS.Platform.u202311077.Shared.Infrastructure.Persistence.EFC.Configuration;
@@ -48,4 +49,6 @@ public class AppDbContext(DbContextOptions options) : DbContext(options)
     }
 
     public DbSet<Device> Devices { get; set; }
+    
+    public DbSet<DataRecord> DataRecords { get; set; }
 }
